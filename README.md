@@ -6,7 +6,8 @@ We undertook this project for Tarisio, an auction house for fine stringed instru
 
 
 Below is a video of an app showing the typical use case. This app is coded with dash and powered with AWS lambda functions.
-https://user-images.githubusercontent.com/85825309/236317648-7182fac1-e780-46ab-b3ab-b23780de4380.mp4
+
+https://user-images.githubusercontent.com/85825309/236393802-0df2164b-bce4-4935-ba97-5caac1539600.mp4
 
 Users can take a picture of a violin's back and drop it in the left frame.
 A first model (Facebook's detectron2) detects **keypoints** on the violin. A program then uses these keypoints to 1. **center and rotate** the violin and 2. **crop** a rectangle inside the violin's back. 
