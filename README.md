@@ -2,7 +2,7 @@
 
 Using **deep learning techniques** usually used for **face recognition** (i.e. Arcface and triplet loss), we developed a model that can take any violin picture and match it to violins from an existing database. 
 
-We undertook this project for Tarisio, an auction house for fine stringed instruments. We used Tario's database Cozio, described on the website as having pictures of "over 36,000 individual instruments and bows by over 3,500 makers."
+We undertook this project for [Tarisio](https://tarisio.com/), an auction house for fine stringed instruments. We used Tario's database [Cozio](https://tarisio.com/cozio-archive/about-cozio/), described on the website as having pictures of "over 36,000 individual instruments and bows by over 3,500 makers."
 
 
 Below is a video of an app showing the typical use case. This app is coded with dash and powered with AWS lambda functions.
