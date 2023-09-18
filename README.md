@@ -1,19 +1,18 @@
 # Violin recognition model
 
-Using **deep learning techniques** usually used for **face recognition** (i.e. Arcface and triplet loss), we developed a model that can take any violin picture and match it to violins from an existing database. 
+We have developed a model using **deep learning techniques**, specifically Arcface and triplet loss, which are commonly used for **face recognition**. This model is capable of matching any violin picture with violins from an existing database, even if these violins were not included in the training dataset.
 
-We undertook this project for [Tarisio](https://tarisio.com/), an auction house for fine stringed instruments. We used Tario's database [Cozio](https://tarisio.com/cozio-archive/about-cozio/), described on the website as having pictures of "over 36,000 individual instruments and bows by over 3,500 makers."
+This project was undertaken for [Tarisio](https://tarisio.com/), an auction house specializing in fine stringed instruments. We utilized Tarisio's database, [Cozio](https://tarisio.com/cozio-archive/about-cozio/), which is described on their website as containing pictures of "over 36,000 individual instruments and bows by over 3,500 makers."
 
-
-Below is a video of an app showing the typical use case. This app is coded with dash and powered with AWS lambda functions.
+Below is a video demonstrating the typical use case of the application. The app has been coded using dash and is powered by AWS lambda functions.
 
 https://user-images.githubusercontent.com/85825309/236393802-0df2164b-bce4-4935-ba97-5caac1539600.mp4
 
 Users can take a picture of a violin's back and drop it in the left frame.
-A first model (Facebook's detectron2) detects **keypoints** on the violin. A program then uses these keypoints to 1. **center and rotate** the violin and 2. **crop** a rectangle inside the violin's back. 
-A second model, trained using face-recognition training methods, compares the wood pattern inside this rectangle to all images in the dataset. It then returns the N violin back pictures with the most similar wood patterns. In the videos, the correct violin comes up first, and "lookalikes" come up after.
+Initially, the [detectron2](https://ai.meta.com/tools/detectron2/) framework developed by Meta was used to fine-tune a **keypoint-rcnn** model (see He and al. [Mask R-CNN](https://arxiv.org/abs/1703.06870), section 5). This model was trained to detect important keypoints on the violin. Subsequently, a program uses these keypoints to accomplish two tasks: 1) centering and rotating the violin, and 2) cropping a rectangle within the back of the violin. 
+A second model, which has been trained using face-recognition training methods, compares the wood pattern within this rectangle to all the images in the dataset. It then provides the N violin back pictures that exhibit the most similar wood patterns. In the videos, the correct violin is displayed first, followed by the "lookalikes".
 
-The following videos show that the model works even with bright lights flashing on the violin's varnished wood, and with the violin rotated 90 degrees. All in all, the recognition model achieved a **rank-1 accuracy** of 93% and a **rank-5 accuracy** of 96% on both a validation and a test dataset of over 1700 images each.
+The following videos show that the model works even with bright lights flashing on the violin's varnished wood, and with the violin rotated 90 degrees. Overall, the recognition model achieved a **rank-1 accuracy** of 93% and a **rank-5 accuracy** of 96% on both a validation and a test dataset of over 1700 images each.
 
 https://user-images.githubusercontent.com/85825309/236393212-dff37932-8996-4778-ab9e-df882c0eeb74.mp4
 
